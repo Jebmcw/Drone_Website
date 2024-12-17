@@ -1,0 +1,64 @@
+/* Header container */
+.header {
+    position: fixed; /* Fixes the header at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0077cc; /* Cool blue background */
+    color: #fff; /* White text */
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 5px;
+    z-index: 1000; /* Keeps the header on top */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  }
+  
+  /* Logo styling */
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Navigation links container */
+  .nav-links {
+    list-style: none; /* Removes bullet points */
+    display: flex; /* Horizontal layout */
+    gap: 20px; /* Spacing between links */
+    margin: 0;
+    padding: 0;
+    padding-right: 20px; /* Pulls all nav links slightly inward */
+  }
+
+  
+  /* Individual links */
+  .nav-link {
+    color: #fff;
+    text-decoration: none; /* Removes underline */
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease; /* Smooth color transition */
+  }
+  
+  .nav-link:hover {
+    color: #ffcc00; /* Yellow hover effect */
+  }
+  
+  /* Mobile-friendly styling */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column; /* Stack logo and nav on smaller screens */
+      padding: 10px;
+    }
+  
+    .nav-links {
+      flex-direction: column; /* Stack links vertically */
+      gap: 10px;
+    }
+  
+    .nav-link {
+      font-size: 1.2rem;
+    }
+  }
+  

@@ -5,7 +5,8 @@ import FeaturesSection from './components/FeaturesSection';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ContactPage from './components/ContactPage';
-
+import Header from './components/Header';
+import About_US from './About us/About_Us';
 function App() {
   const [message, setMessage] = useState('');
 
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <Router>
+      <Header />
       <Routes>
         <Route path="/" element={
           <>
@@ -26,6 +28,7 @@ function App() {
           </>
         } />
         <Route path="/explained" element={<ContactPage/>} />
+        <Route path="/contact" element={<ContactPage/>}/>
       </Routes>
     </Router>
   );
