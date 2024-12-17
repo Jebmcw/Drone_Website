@@ -3,6 +3,9 @@ import axios from 'axios';
 import HeroSection from './components/HeroSection';
 import FeaturesSection from './components/FeaturesSection';
 import './App.css';
+import ExplainedPage from './components/ExplainedPage'; // New page component
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 function App() {
   const [message, setMessage] = useState('');
 
@@ -14,10 +17,17 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <HeroSection />
-      <FeaturesSection />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <HeroSection />
+            <FeaturesSection />
+          </>
+        } />
+        <Route path="/explained" element={<ExplainedPage />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -1,15 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './HeroSection.css';
 
 const HeroSection = () => {
   return (
     <section className="hero-section">
       <div className="hero-content">
-        <h1 className="hero-title">Drone Videos!!</h1>
+        <h1 className="hero-title">Slick Material Design</h1>
         <p className="hero-subtitle">
-          Drone Videos
+          Beautiful, Elegantly Coded, One-Page Theme for Your Business
         </p>
-        <button className="hero-button">SEE MORE</button>
+        {/* Link the button to the "/explained" route */}
+        <Link to="">
+          <button className="hero-button">SEE MORE</button>
+        </Link>
       </div>
     </section>
   );
