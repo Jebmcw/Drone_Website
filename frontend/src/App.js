@@ -3,8 +3,8 @@ import axios from 'axios';
 import HeroSection from './components/HeroSection';
 import FeaturesSection from './components/FeaturesSection';
 import './App.css';
-import ExplainedPage from './components/ExplainedPage'; // New page component
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ContactPage from './components/ContactPage';
 
 function App() {
   const [message, setMessage] = useState('');
@@ -25,7 +25,7 @@ function App() {
             <FeaturesSection />
           </>
         } />
-        <Route path="/explained" element={<ExplainedPage />} />
+        <Route path="/explained" element={<ContactPage/>} />
       </Routes>
     </Router>
   );
