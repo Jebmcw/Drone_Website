@@ -6,7 +6,8 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ContactPage from './components/ContactPage';
 import Header from './components/Header';
-import About_US from './About us/About_Us';
+import About_US from './About/About_Us';
+import Our_Work from './Our_Work/Our_Work';
 function App() {
   const [message, setMessage] = useState('');
 
@@ -29,6 +30,8 @@ function App() {
         } />
         <Route path="/explained" element={<ContactPage/>} />
         <Route path="/contact" element={<ContactPage/>}/>
+        <Route path="/about" element={<About_US/>}/>
+        <Route path="/work" element={<Our_Work/>}/>
       </Routes>
     </Router>
   );

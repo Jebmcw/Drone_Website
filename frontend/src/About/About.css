@@ -1,0 +1,44 @@
+/* Container for the page */
+.about-container {
+    height: 100vh; /* Full screen height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+    background-color: #f9f9f9; /* Light background color */
+    padding: 20px;
+  }
+  
+  /* Title Styling */
+  .about-title {
+    font-size: 4rem;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif; /* Cool modern font */
+    color: #0077cc; /* Blue color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    animation: fadeIn 1.5s ease-in-out; /* Animation */
+    margin-bottom: 20px;
+  }
+  
+  /* About Us Text */
+  .about-text {
+    font-size: 1.2rem;
+    max-width: 800px;
+    line-height: 1.6; /* Spacing between lines */
+    color: #333; /* Dark gray text */
+    padding: 10px;
+  }
+  
+  /* Keyframe Animation for Fade-in Effect */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px); /* Starts slightly above */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0); /* Ends in normal position */
+    }
+  }
+  
