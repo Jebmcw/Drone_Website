@@ -1,0 +1,82 @@
+/* Container for the entire page */
+.explained-container {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  /* Title of the page */
+  .explained-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+  
+  /* Flexbox container for the plans */
+  .plans-container {
+    display: flex;
+    justify-content: center; /* Center boxes */
+    gap: 40px; /* Spacing between boxes */
+    flex-wrap: wrap; /* Wrap to next line on smaller screens */
+  }
+  
+  /* Each plan box */
+  .plan-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .plan-box:hover {
+    transform: translateY(-10px); /* Slight lift effect on hover */
+  }
+  
+  /* Plan image */
+  .plan-image {
+    width: 100%; /* Full width of the box */
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  /* Plan title */
+  .plan-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Plan description */
+  .plan-description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  /* Plan price */
+  .plan-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0077cc;
+    margin-bottom: 15px;
+  }
+  
+  /* See More button */
+  .plan-button {
+    background-color: #ff0066;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .plan-button:hover {
+    background-color: #e6005c;
+  }
+  

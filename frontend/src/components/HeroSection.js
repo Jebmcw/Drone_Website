@@ -11,7 +11,7 @@ const HeroSection = () => {
           Beautiful, Elegantly Coded, One-Page Theme for Your Business
         </p>
         {/* Link the button to the "/explained" route */}
-        <Link to="">
+        <Link to="explained">
           <button className="hero-button">SEE MORE</button>
         </Link>
       </div>
