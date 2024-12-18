@@ -1,100 +1,92 @@
-import React, { useState } from 'react';
-import './ContactPage.css';
+import React, { useState } from "react";
+import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
+import "./ContactPage.css";
 
 const ContactPage = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch('http://localhost:5000/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        alert('Message sent successfully!');
-        setFormData({ name: '', email: '', phone: '', message: '' }); // Clear form
-      } else {
-        alert('Failed to send message. Please try again.');
-        console.error(result);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('An error occurred. Please try again later.');
-    }
-  };
+  // State to track character counts
+  const [nameCount, setNameCount] = useState(0);
+  const [emailCount, setEmailCount] = useState(0);
+  const [messageCount, setMessageCount] = useState(0);
 
   return (
-    <div className="contact-container">
-      <h1 className="contact-title">Get in Touch</h1>
+    <section className="contact-container">
+      {/* Section Title and Description */}
+      <h2 className="contact-title">Get in Touch</h2>
       <p className="contact-description">
-        Send us a message, and we’ll get back to you as soon as possible.
+        Send us a message, and we'll get back to you as soon as possible.
       </p>
-      <form className="contact-form" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Name</label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Your Name"
-            required
-          />
+
+      <div className="contact-content">
+        {/* Contact Information */}
+        <div className="contact-info">
+          <div className="info-item">
+            <FaMapMarkerAlt className="icon" />
+            <h4>Address</h4>
+            <p>146 Yuma Street<br />Denver CO, 80223</p>
+          </div>
+          <div className="info-item">
+            <FaPhoneAlt className="icon" />
+            <h4>Phone</h4>
+            <p>303.428.2011<br />24/7 Emergency: Press 2</p>
+          </div>
+          <div className="info-item">
+            <FaEnvelope className="icon" />
+            <h4>Email</h4>
+            <p>
+              <a href="mailto:info@example.com">info@example.com</a>
+            </p>
+          </div>
         </div>
-        <div className="form-group">
-          <label>Email</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Your Email"
-            required
-          />
+
+        {/* Contact Form */}
+        <div className="contact-form">
+          <form>
+            {/* Name Field */}
+            <div className="form-group">
+              <label htmlFor="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                placeholder="Your Name"
+                maxLength="50"
+                onChange={(e) => setNameCount(e.target.value.length)} /* Update state */
+              />
+              <small className="char-count">{nameCount}/50</small>
+            </div>
+
+            {/* Email Field */}
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="Your Email"
+                maxLength="100"
+                onChange={(e) => setEmailCount(e.target.value.length)} /* Update state */
+              />
+              <small className="char-count">{emailCount}/100</small>
+            </div>
+
+            {/* Message Field */}
+            <div className="form-group">
+              <label htmlFor="message">Comments</label>
+              <textarea
+                id="message"
+                rows="5"
+                placeholder="Your Message"
+                maxLength="500"
+                onChange={(e) => setMessageCount(e.target.value.length)} /* Update state */
+              ></textarea>
+              <small className="char-count">{messageCount}/500</small>
+            </div>
+
+            <button type="submit" className="submit-button">
+              Submit
+            </button>
+          </form>
         </div>
-        <div className="form-group">
-          <label>Phone</label>
-          <input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            placeholder="Your Phone Number"
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>Message</label>
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            placeholder="Your Message"
-            rows="5"
-            required
-          ></textarea>
-        </div>
-        <button type="submit" className="submit-button">
-          Send Message
-        </button>
-      </form>
-    </div>
+      </div>
+    </section>
   );
 };
 

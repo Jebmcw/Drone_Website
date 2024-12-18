@@ -1,23 +1,43 @@
-/* Page Container */
-.contact-container {
-    padding: 50px 20px;
+/* ============================
+   General Styles
+   ============================ */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
     background-color: #f9f9f9;
-    text-align: center;
     color: #333;
   }
   
-  /* Title and Description */
+  /* ============================
+     Contact Section Container
+     ============================ */
+  .contact-container {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+  }
+  
   .contact-title {
     font-size: 2.5rem;
+    font-weight: bold;
     margin-bottom: 10px;
   }
   
   .contact-description {
     font-size: 1.2rem;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    color: #666;
   }
   
-  /* Content Layout */
+  /* ============================
+     Contact Content Layout
+     ============================ */
   .contact-content {
     display: flex;
     justify-content: center;
@@ -25,12 +45,49 @@
     flex-wrap: wrap;
   }
   
-  /* Contact Form */
+  /* ============================
+     Contact Information
+     ============================ */
+  .contact-info {
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  .info-item {
+    margin-bottom: 30px;
+  }
+  
+  .info-item .icon {
+    font-size: 2rem;
+    color: #0077cc;
+    margin-bottom: 10px;
+  }
+  
+  .info-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+  
+  .info-item p,
+  .info-item a {
+    font-size: 1rem;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .info-item a:hover {
+    color: #0077cc;
+    text-decoration: underline;
+  }
+  
+  /* ============================
+     Contact Form Styling
+     ============================ */
   .contact-form {
     background-color: #fff;
-    padding: 20px;
+    padding: 25px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     max-width: 400px;
     width: 100%;
   }
@@ -45,20 +102,41 @@
     margin-bottom: 5px;
     font-weight: bold;
   }
+
+  .char-count {
+    display: block;
+    text-align: right;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
+  }
   
-  .form-group input,
-  .form-group textarea {
+  
+  .form-group input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
+    box-sizing: border-box; /* Ensures consistent size */
   }
   
-  .form-group input:focus,
-  .form-group textarea:focus {
-    outline: none;
-    border-color: #0077cc;
+  .form-group textarea {
+    width: 100%; /* Full width of its container */
+    min-height: 150px; /* Set a fixed initial height */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    resize: none; /* Completely disable resizing */
+    box-sizing: border-box; /* Prevent padding from affecting width */
+    overflow-y: auto; /* Scrollbar only when content overflows vertically */
+  }
+  
+  
+  
+  .form-group textarea {
+    min-height: 100px; /* Prevent textarea from being too small */
   }
   
   .submit-button {
@@ -69,34 +147,24 @@
     border-radius: 5px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s ease-in-out;
   }
   
   .submit-button:hover {
     background-color: #005fa3;
   }
   
-  /* Contact Information */
-  .contact-info {
-    text-align: left;
-    max-width: 300px;
-  }
+  /* ============================
+     Responsive Design
+     ============================ */
+  @media (max-width: 768px) {
+    .contact-content {
+      flex-direction: column;
+    }
   
-  .contact-info h3 {
-    margin-bottom: 15px;
-  }
-  
-  .contact-info p {
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-  }
-  
-  .contact-info a {
-    color: #0077cc;
-    text-decoration: none;
-  }
-  
-  .contact-info a:hover {
-    text-decoration: underline;
+    .contact-info,
+    .contact-form {
+      max-width: 100%;
+    }
   }
   

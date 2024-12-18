@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import HeroSection from './components/HeroSection';
-import FeaturesSection from './components/FeaturesSection';
-import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ContactPage from './components/ContactPage';
-import Header from './components/Header';
+import React, { useEffect, useState } from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import About_US from './About/About_Us';
+import './App.css';
+import ContactPage from './components/ContactPage';
+import FeaturesSection from './components/FeaturesSection';
+import Header from './components/Header';
+import HeroSection from './components/HeroSection';
 import Our_Work from './Our_Work/Our_Work';
 function App() {
   const [message, setMessage] = useState('');
