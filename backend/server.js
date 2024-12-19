@@ -10,39 +10,46 @@ app.use(cors());
 app.use(express.json());
 
 // Contact form API route
-app.post('/api/contact', (req, res) => {
+app.post('/api/contact', async (req, res) => {
   const { name, email, phone, message } = req.body;
 
-  // Nodemailer transporter setup
-  const transporter = nodemailer.createTransport({
-    service: 'gmail', // You can use other services like SendGrid or SMTP
-    auth: {
-      user: 'woods.blake03@gmail.com', // Your email address
-      pass: 'bcla gcif utdh xcgj',  // Your email password or App Password
-    },
-  });
+  // Validate input fields
+  if (!name || !email || !message) {
+    console.error('Validation error: Missing required fields');
+    return res.status(400).json({ message: 'Name, email, and message are required.' });
+  }
 
-  const mailOptions = {
-    from: email, // User's email
-    to: 'woods.blake03@gmail.com', // Your email address where you receive the messages
-    subject: `New Contact Form Submission from ${name}`,
-    text: `
-      Name: ${name}
-      Email: ${email}
-      Phone: ${phone}
-      Message: ${message}
-    `,
-  };
+  try {
+    // Nodemailer transporter setup
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'woods.blake03@gmail.com', // Your email address
+        pass: 'bcla gcif utdh xcgj', // App Password
+      },
+    });
 
-  // Send the email
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error('Error sending email:', error);
-      return res.status(500).json({ message: 'Failed to send email', error });
-    }
+    const mailOptions = {
+      from: email,
+      to: 'woods.blake03@gmail.com',
+      subject: `New Contact Form Submission from ${name}`,
+      text: `
+        Name: ${name}
+        Email: ${email}
+        Phone: ${phone || 'N/A'} 
+        Message: ${message}
+      `,
+    };
+
+    // Send the email using async/await
+    const info = await transporter.sendMail(mailOptions);
     console.log('Email sent successfully:', info.response);
     res.status(200).json({ message: 'Email sent successfully' });
-  });
+
+  } catch (error) {
+    console.error('Error sending email:', error.message);
+    res.status(500).json({ message: 'Failed to send email', error: error.message });
+  }
 });
 
 // Test API route
