@@ -1,44 +1,66 @@
-/* Container for the page */
+/* Main container for the About page */
 .about-container {
-    height: 100vh; /* Full screen height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    text-align: center;
-    background-color: #f9f9f9; /* Light background color */
-    padding: 20px;
+  height: 100vh; /* Full screen height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #0077cc 30%, #001f4d 100%); /* Gradient background */
+  color: white; /* White text for contrast */
+  animation: fadeIn 1.5s ease-in-out; /* Page-wide fade-in animation */
+}
+
+/* Title Styling */
+.about-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Soft shadow for title */
+  animation: slideDown 1.5s ease; /* Smooth slide-in animation */
+}
+
+/* About Text */
+.about-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 800px; /* Limit the width of the text */
+  margin: 10px 0;
+  font-family: 'Roboto', sans-serif;
+  color: #f0f0f0;
+  animation: fadeInUp 1.5s ease; /* Fade and move up animation */
+}
+
+/* Keyframes for Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  /* Title Styling */
-  .about-title {
-    font-size: 4rem;
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif; /* Cool modern font */
-    color: #0077cc; /* Blue color */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-    animation: fadeIn 1.5s ease-in-out; /* Animation */
-    margin-bottom: 20px;
+  to {
+    opacity: 1;
   }
-  
-  /* About Us Text */
-  .about-text {
-    font-size: 1.2rem;
-    max-width: 800px;
-    line-height: 1.6; /* Spacing between lines */
-    color: #333; /* Dark gray text */
-    padding: 10px;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
   }
-  
-  /* Keyframe Animation for Fade-in Effect */
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(-20px); /* Starts slightly above */
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0); /* Ends in normal position */
-    }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
